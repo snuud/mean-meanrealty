@@ -37,4 +37,4 @@ process.once('SIGUSR2', function(){
 });
 
 require('./properties.model.js');
-// require('./users.model.js');
+require('./users.model.js');

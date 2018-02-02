@@ -9,16 +9,16 @@
     <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet"> <!-- .navbar-brand -->
     <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet"> <!-- * -->
 </head>
-<body ng-app="app" class="ng-cloak">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#/">MEAN Realty</a>
+<body ng-app="app" class="ng-cloak" ng-controller="LoginController as vm">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" ng-init="vm.init()">
+        <a class="navbar-brand" href="#">Snuud Realty</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navColl" aria-controls="navColl" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navColl">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#/">Home</a>
+                    <a class="nav-link" href="#/home">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Property</a>
@@ -34,12 +34,18 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#/contact">Contact</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" ng-if="vm.isLoggedIn()">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Manage</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#/manageuser">User</a>
                         <a class="dropdown-item" href="#/manageproperty">Property</a>
                     </div>
+                </li>
+                <li class="nav-item" ng-if="vm.isLoggedIn()">
+                    <a class="nav-link" href=""><button class="btn btn-danger" ng-click="vm.logout()">Logout</button></a>
+                </li>
+                <li class="nav-item" ng-if="!vm.isLoggedIn()">
+                    <a class="nav-link" href="#/login"><button class="btn btn-success">Login</button></a>
                 </li>
             </ul>
         </div>
@@ -56,8 +62,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="angular-app/app.js"></script>
+    <script type="text/javascript" src="angular-app/navigation/navigation-directive.js"></script>
+    <script type="text/javascript" src="angular-app/home/home-controller.js"></script>
     <script type="text/javascript" src="angular-app/property/property-controller.js"></script>
+    <script type="text/javascript" src="angular-app/property-by-id/property-by-id-controller.js"></script>
+    <script type="text/javascript" src="angular-app/login/login-controller.js"></script>
+    <script type="text/javascript" src="angular-app/manage-user/manage-user-controller.js"></script>
     <script type="text/javascript" src="angular-app/manage-property/manage-property-controller.js"></script>
     <script type="text/javascript" src="angular-app/data/data-factory.js"></script>
+    <script type="text/javascript" src="angular-app/auth/auth-interceptor.js"></script>
+    <script type="text/javascript" src="angular-app/auth/auth-factory.js"></script>
 </body>
 </html>

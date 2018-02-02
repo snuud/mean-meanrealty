@@ -5,3 +5,29 @@
     </ol>
 </nav>
 <br>
+<div ng-if="vm.error" class="alert alert-danger" role="alert">
+    <p>{{vm.error}}</p>
+</div>
+<div class="container">
+    <table class="table table-bordered table-hover text-center">
+        <thead class="thead-light">
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in vm.users">
+                <td>{{user.username}}</td>
+                <td>{{user.password}}</td>
+                <td><button class="btn btn-danger" ng-click="vm.deleteUser(user._id)">Del</button></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Username" ng-model="vm.username"></td>
+                <td><input type="password" placeholder="Password" ng-model="vm.password"></td>
+                <td><button class="btn btn-success" ng-click="vm.registerUser()">Add</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
