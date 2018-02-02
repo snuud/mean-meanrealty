@@ -1,22 +1,15 @@
 angular.module('app', ['ngRoute']).config(config);
 
 function config($routeProvider, $locationProvider, $httpProvider){
-    $httpProvider.interceptors.push('AuthInterceptor');
     $locationProvider.hashPrefix('');
     $routeProvider.
         when('/', {
-            templateUrl: 'angular-app/home/home.html',
-            access: {
-                restricted: false
-            }
+            templateUrl: 'angular-app/home/home.html'
         }).
         when('/manageproperty', {
             templateUrl: 'angular-app/manage-property/manage-property.html',
             controller: ManagePropertyController,
-            controllerAs: 'vm',
-            access: {
-                restricted: true
-            }
+            controllerAs: 'vm'
         }).
         otherwise({
             redirectTo : '/'
