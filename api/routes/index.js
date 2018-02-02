@@ -17,8 +17,7 @@ router
 router
 .route('/user')
 .get(UserController.authenticate, UserController.getAllUsers)
-.post(UserController.postNewUser);
-// .post(UserController.authenticate, UserController.postNewUser);
+.post(UserController.authenticate, UserController.postNewUser);
 
 router
 .route('/user/:id')
