@@ -8,6 +8,11 @@ router
 .get(PropertyController.getAllProperties)
 .post(PropertyController.postNewProperty);
 
+router
+.route('/property/:id')
+.get(PropertyController.getPropertyById)
+.delete(UserController.authenticate, PropertyController.deletePropertyById);
+
 // var PropertyController = require('../controllers/property.controller.js');
 // var UserController = require('../controllers/user.controller.js');
 

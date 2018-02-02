@@ -19,6 +19,35 @@ module.exports.getAllProperties = function(req, res){
     });
 };
 
+module.exports.getPropertyById = function(req, res){
+    var id = req.params.id;
+
+    Property
+    .findById(id)
+    .exec(function(err, doc){
+        var response = {
+            status: 200,
+            message: doc
+        };
+
+        if (err){
+            console.log(err);
+            response.status = 500;
+            response.message = err;
+        } else if (!doc){
+            console.log('Property not found!');
+            response.status = 404;
+            response.message = {
+                'message': 'Property not found!'
+            };
+        }
+
+        res
+        .status(response.status)
+        .json(response.message);
+    });
+};
+
 module.exports.postNewProperty = function(req, res){
     Property
     .create({
@@ -49,6 +78,26 @@ module.exports.postNewProperty = function(req, res){
             res
             .status(201)
             .json(property);
+        };
+    });
+};
+
+module.exports.deletePropertyById = function(req, res){
+    var id = req.params.id;
+
+    Property
+    .findByIdAndRemove(id)
+    .exec(function(err, property){
+        if (err){
+            console.log(err);
+            res
+            .status(404)
+            .json(err);
+        } else {
+            console.log('Delete call succeeded.');
+            res
+            .status(204)
+            .json();
         };
     });
 };
