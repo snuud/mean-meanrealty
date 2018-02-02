@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body ng-app="app" class="ng-cloak">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#/">MEAN Realty</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navColl" aria-controls="navColl" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,11 @@
             </ul>
         </div>
     </nav>
-    <div ng-view></div>
+    <div class="padTop" ng-view></div>
+    <br><br><br>
+    <nav class="navbar fixed-bottom navbar-dark bg-dark">
+        <a class="navbar-brand mx-auto" href="">2018 Snuud Realty. All Rights Reserved.</a>
+    </nav>
 
     <script type="text/javascript" src="/node_modules/angular/angular.min.js"></script>
     <script type="text/javascript" src="/node_modules/angular-route/angular-route.min.js"></script>
