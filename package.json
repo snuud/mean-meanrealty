@@ -1,0 +1,11 @@
+{
+  "name": "mean-realty",
+  "version": "1.0.0",
+  "description": "web app build using mean stack - MongoDB, ExpressJS, AngularJS, NodeJS",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "sn",
+  "license": "ISC"
+}
