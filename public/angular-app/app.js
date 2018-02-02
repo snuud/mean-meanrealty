@@ -25,7 +25,9 @@ function config($routeProvider, $locationProvider, $httpProvider){
             templateUrl: 'angular-app/manage-user/manage-user.html'
         }).
         when('/manageproperty', {
-            templateUrl: 'angular-app/manage-property/manage-property.html'
+            templateUrl: 'angular-app/manage-property/manage-property.html',
+            controller: ManagePropertyController,
+            controllerAs: 'vm',
         }).
         otherwise({
             redirectTo : '/'
