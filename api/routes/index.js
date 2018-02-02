@@ -5,7 +5,8 @@ var PropertyController = require('../controllers/property.controller.js');
 
 router
 .route('/property')
-.get(PropertyController.getAllProperties);
+.get(PropertyController.getAllProperties)
+.post(PropertyController.postNewProperty);
 
 // var PropertyController = require('../controllers/property.controller.js');
 // var UserController = require('../controllers/user.controller.js');
