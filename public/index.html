@@ -9,14 +9,14 @@
 </head>
 <body ng-app="app" class="ng-cloak">
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">MEAN Realty</a>
+        <a class="navbar-brand" href="#/">MEAN Realty</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navColl" aria-controls="navColl" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navColl">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#/">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Property</a>
@@ -42,6 +42,7 @@
             </ul>
         </div>
     </nav>
+    <div ng-view class="padTop"></div>
 
     <script type="text/javascript" src="/node_modules/angular/angular.min.js"></script>
     <script type="text/javascript" src="/node_modules/angular-route/angular-route.min.js"></script>
@@ -49,5 +50,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="angular-app/app.js"></script>
+    <script type="text/javascript" src="angular-app/manage-property/manage-property-controller.js"></script>
 </body>
 </html>
