@@ -35,4 +35,13 @@ function ManagePropertyController(dataFactory, $route){
             alert('Failed to create property: ' + error);
         });
     };
+
+    vm.deleteProperty = function(id){
+        dataFactory.removePropertyById(id).then(function(response){
+            alert('Successfully removed the selected property.');
+            $route.reload()
+        }).catch(function(error){
+            alert('Failed to remove property: ' + error);
+        });
+    };
 };
