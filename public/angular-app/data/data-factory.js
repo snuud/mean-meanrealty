@@ -4,9 +4,9 @@ function dataFactory($http){
 
     return {
         findAllProperties: findAllProperties,
-        // findPropertyById: findPropertyById,
-        addNewProperty: addNewProperty
-        // removePropertyById: removePropertyById,
+        findPropertyById: findPropertyById,
+        addNewProperty: addNewProperty,
+        removePropertyById: removePropertyById
         // findAllUsers: findAllUsers,
         // addNewUser: addNewUser,
         // removeUserById: removeUserById
@@ -16,17 +16,17 @@ function dataFactory($http){
         return $http.get('api/property').then(complete).catch(failed);
     };
 
-    // function findPropertyById(id){
-    //     return $http.get('api/property/' + id).then(complete).catch(failed);
-    // };
+    function findPropertyById(id){
+        return $http.get('api/property/' + id).then(complete).catch(failed);
+    };
 
     function addNewProperty(data){
         return $http.post('/api/property', data).then(complete).catch(failed);
     };
 
-    // function removePropertyById(id){
-    //     return $http.delete('/api/property/' + id).then(complete).catch(failed);
-    // };
+    function removePropertyById(id){
+        return $http.delete('/api/property/' + id).then(complete).catch(failed);
+    };
 
     // function findAllUsers(){
     //     return $http.get('api/user').then(complete).catch(failed);
