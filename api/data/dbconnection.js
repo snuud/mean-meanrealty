@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var dburl = 'mongodb://mean-admin:meanPassword!@ds121588.mlab.com:21588/mean-snuudrealty';
+var dburl = 'mongodb://mean-admin:meanPassword!@ds121268.mlab.com:21268/mean-meanrealty';
 
 mongoose.connect(dburl);
 
