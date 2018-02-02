@@ -12,10 +12,14 @@ function config($routeProvider, $locationProvider, $httpProvider){
             controllerAs: 'vm'
         }).
         when('/buy', {
-            templateUrl: 'angular-app/property/buy.html'
+            templateUrl: 'angular-app/property/buy.html',
+            controller: PropertyController,
+            controllerAs: 'vm'
         }).
         when('/rent', {
-            templateUrl: 'angular-app/property/rent.html'
+            templateUrl: 'angular-app/property/rent.html',
+            controller: PropertyController,
+            controllerAs: 'vm'
         }).
         when('/about', {
             templateUrl: 'angular-app/about/about.html'
