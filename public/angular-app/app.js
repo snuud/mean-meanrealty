@@ -7,7 +7,9 @@ function config($routeProvider, $locationProvider, $httpProvider){
             templateUrl: 'angular-app/home/home.html'
         }).
         when('/property', {
-            templateUrl: 'angular-app/property/property.html'
+            templateUrl: 'angular-app/property/property.html',
+            controller: PropertyController,
+            controllerAs: 'vm'
         }).
         when('/buy', {
             templateUrl: 'angular-app/property/buy.html'
