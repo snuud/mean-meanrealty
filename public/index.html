@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,11 +8,15 @@
 </head>
 <body>
     <div class="jumbotron">
-
+        <input type="text" name="text" ng-model="text">
+        <h1>{{text}}</h1>
     </div>
 
+    <script type="text/javascript" src="/node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/node_modules/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="angular-app/app.js"></script>
 </body>
 </html>
