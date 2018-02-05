@@ -1,6 +1,6 @@
 angular.module('app').controller('ManageUserController', ManageUserController);
 
-function ManageUserController(dataFactory, $route){
+function ManageUserController(dataFactory, $route, $window, AuthFactory, $location){
     var vm = this;
 
     dataFactory.findAllUsers().then(function(response){
@@ -30,7 +30,9 @@ function ManageUserController(dataFactory, $route){
     vm.deleteUser = function(id){
         dataFactory.removeUserById(id).then(function(response){
             alert('Successfully removed the selected user.');
-            $route.reload()
+            AuthFactory.isLoggedIn = false;
+            delete $window.sessionStorage.token;
+            $location.path('/');
         }).catch(function(error){
             alert('Failed to remove user: ' + error);
         });

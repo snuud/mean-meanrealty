@@ -5,29 +5,33 @@
     </ol>
 </nav>
 <br>
-<div ng-if="vm.error" class="alert alert-danger" role="alert">
-    <p>{{vm.error}}</p>
-</div>
-<div class="container">
-    <table class="table table-bordered table-hover text-center">
-        <thead class="thead-light">
-            <tr>
-                <th>Username</th>
-                <th>Password</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="user in vm.users">
-                <td>{{user.username}}</td>
-                <td>{{user.password}}</td>
-                <td><button class="btn btn-danger" ng-click="vm.deleteUser(user._id)">Del</button></td>
-            </tr>
-            <tr>
-                <td><input type="text" placeholder="Username" ng-model="vm.username"></td>
-                <td><input type="password" placeholder="Password" ng-model="vm.password"></td>
-                <td><button class="btn btn-success" ng-click="vm.registerUser()">Add</button></td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3" ng-repeat="user in vm.users">
+            <div class="card">
+                <div class="thumbnail">
+                    <img class="card-img-top" ng-src="https://www.iconexperience.com/_img/o_collection_png/green_dark_grey/512x512/plain/user.png">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{user.username}}</h5>
+                        <button class="btn btn-danger" ng-click="vm.deleteUser(user._id)">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="thumbnail">
+                    <img class="card-img-top" ng-src="http://icons.iconarchive.com/icons/icons8/windows-8/256/Users-Add-User-icon.png">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Username: <input type="text" class="form-control" name="username" ng-model="vm.username"></h5>
+                        <h5 class="card-title">Password: <input type="password" class="form-control" name="password" ng-model="vm.password"></h5>
+                        <button class="btn btn-success" ng-click="vm.registerUser()">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

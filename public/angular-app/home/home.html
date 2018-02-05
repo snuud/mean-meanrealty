@@ -4,53 +4,49 @@
     </ol>
 </nav>
 <br>
-<div class="container">
-    <div class="jumbotron text-center">
-        <h1>Latest Properties</h1>
-        <hr>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="thumbnail">
-                        <img class="card-img-top" src="{{vm.new1.image}}">
+<div class="container-fluid">
+    <h3>New Properties</h3>
+    <hr>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="thumbnail">
+                    <img class="card-img-top" ng-src="{{vm.new1.image}}">
+                    <div class="middle">
+                        <div class="text"><a href="#/property/{{vm.new1._id}}" class=" btn btn-info">More Details</a></div>
                     </div>
                     <div class="card-body text-center">
-                        <h4 class="card-title">{{vm.new1.option}}</h4>
-                        <p class="card-text">{{vm.new1.type}}</p>
-                        <h5 class="card-title">BND {{vm.new1.price | currency}}</h5>
-                        <a href="#/property/{{vm.new1._id}}" class="btn btn-info">Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="thumbnail">
-                        <img class="card-img-top" src="{{vm.new2.image}}">
-                    </div>
-                    <div class="card-body text-center">
-                        <h4 class="card-title">{{vm.new2.option}}</h4>
-                        <p class="card-text">{{vm.new2.type}}</p>
-                        <h5 class="card-title">BND {{vm.new2.price | currency}}</h5>
-                        <a href="#/property/{{vm.new2._id}}" class="btn btn-info">Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="thumbnail">
-                        <img class="card-img-top" src="{{vm.new3.image}}">
-                    </div>
-                    <div class="card-body text-center">
-                        <h4 class="card-title">{{vm.new3.option}}</h4>
-                        <p class="card-text">{{vm.new3.type}}</p>
-                        <h5 class="card-title">BND {{vm.new3.price | currency}}</h5>
-                        <a href="#/property/{{vm.new3._id}}" class="btn btn-info">Details</a>
+                        <h6 class="card-title">{{vm.new1.option}} {{vm.new1.price | currency}}</h6>
                     </div>
                 </div>
             </div>
         </div>
-        <hr>
-        <a href="#/property" class="btn btn-lg btn-primary">See All Properties</a>
-        <a href="#/contact" class="btn btn-lg btn-warning">Contact Snuud Realty</a>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="thumbnail">
+                    <img class="card-img-top" ng-src="{{vm.new2.image}}">
+                    <div class="middle">
+                        <div class="text"><a href="#/property/{{vm.new2._id}}" class=" btn btn-info">More Details</a></div>
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">{{vm.new2.option}} {{vm.new2.price | currency}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="thumbnail">
+                    <img class="card-img-top" ng-src="{{vm.new3.image}}">
+                    <div class="middle">
+                        <div class="text"><a href="#/property/{{vm.new3._id}}" class=" btn btn-info">More Details</a></div>
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="card-title">{{vm.new3.option}} {{vm.new3.price | currency}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <br>
 </div>

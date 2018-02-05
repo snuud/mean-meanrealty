@@ -37,7 +37,7 @@ function LoginController($http, $location, $window, AuthFactory, jwtHelper){
         }
     }
 
-    vm.logout = function() {
+    vm.logout = function(){
         AuthFactory.isLoggedIn = false;
         delete $window.sessionStorage.token;
         $location.path('/');
