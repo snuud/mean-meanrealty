@@ -5,6 +5,9 @@
 </nav>
 <br>
 <div class="container">
+    <div ng-show="vm.message">
+        <p>{{vm.message}}</p>
+    </div>
     <form ng-submit="vm.login()">
         <div class="form-group">
             <label for="username">Username</label>
