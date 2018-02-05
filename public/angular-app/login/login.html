@@ -5,8 +5,8 @@
 </nav>
 <br>
 <div class="container">
-    <div ng-show="vm.message">
-        <p>{{vm.message}}</p>
+    <div class="alert alert-danger" role="alert" ng-show="vm.message">
+        {{vm.message}}
     </div>
     <form ng-submit="vm.login()">
         <div class="form-group">
