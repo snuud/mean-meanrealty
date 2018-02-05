@@ -114,14 +114,15 @@ module.exports.login = function(req, res){
             console.log("Error : " + JSON.stringify(err));
         }
         if (!user){
-            return res.send(404, "Invalid Username or Password.");
+            // return res.send(404, "Invalid Username or Password.");
+            return res.status(404).json({message: 'Invalid Username or Password'});
         }
         if (user){
             bcrypt.compare(password, user.password, function (err, result){
                 if (result){
                     // var token = jwt.encode(user, JWT_SECRET);
                     var token = jwt.sign({username: user.username}, 's3cr3t', {expiresIn: 3600});
-                    return res.status(200).json({success: true, token: token});
+                    return res.status(200).json({message: 'Login successful', token: token});
                 } else {
                     return res.status(400).send();
                 }
