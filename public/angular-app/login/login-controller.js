@@ -26,9 +26,11 @@ function LoginController($http, $location, $window, AuthFactory, jwtHelper){
                     var decodedToken = jwtHelper.decodeToken(token);
                     vm.loggedInUser = decodedToken.username;
                 }
+                console.log(response);
+                alert(response);
                 $location.path('/');
             }).catch(function(error) {
-                console.log(error.data);
+                alert(error.data);
             })
         }
     }
