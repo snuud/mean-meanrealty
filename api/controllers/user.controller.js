@@ -122,7 +122,7 @@ module.exports.login = function(req, res){
                 if (result){
                     // var token = jwt.encode(user, JWT_SECRET);
                     var token = jwt.sign({username: user.username}, 's3cr3t', {expiresIn: 3600});
-                    return res.status(200).json({message: 'Login successful', token: token});
+                    return res.status(200).json({message: 'Login successful', success: true, token: token});
                 } else {
                     return res.status(400).send();
                 }
