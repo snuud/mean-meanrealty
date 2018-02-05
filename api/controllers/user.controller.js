@@ -69,40 +69,64 @@ module.exports.deleteUserById = function(req, res){
     });
 };
 
+// module.exports.login = function(req, res){
+
+//     console.log('Logging in user.');
+
+//     var username = req.body.username;
+//     var password = req.body.password;
+
+//     User.findOne({
+//         username: username
+//     }).exec(function(err, user){
+//         if (err){
+//             console.log(err);
+
+//             res
+//                 .status(400)
+//                 .json(err);
+//         } else {
+//             console.log('User found', user);
+
+//             if (bcrypt.compareSync(password, user.password)){
+//                 var token = jwt.sign({username: user.username}, 's3cr3t', {expiresIn: 3600});
+
+//                 res
+//                     .status(200)
+//                     .json({success: true, token: token});
+//             } else {
+//                 res
+//                     .status(401)
+//                     .json('Authentication failed!');
+//             }
+
+//         }
+//     });
+
+// };
+
 module.exports.login = function(req, res){
-
-    console.log('Logging in user.');
-
     var username = req.body.username;
     var password = req.body.password;
 
-    User.findOne({
-        username: username
-    }).exec(function(err, user){
+    User.findOne({username: username}, function(err, user){
         if (err){
-            console.log(err);
-
-            res
-                .status(400)
-                .json(err);
-        } else {
-            console.log('User found', user);
-
-            if (bcrypt.compareSync(password, user.password)){
-                var token = jwt.sign({username: user.username}, 's3cr3t', {expiresIn: 3600});
-
-                res
-                    .status(200)
-                    .json({success: true, token: token});
-            } else {
-                res
-                    .status(401)
-                    .json('Authentication failed!');
-            }
-
+            console.log("Error : " + JSON.stringify(err));
         }
-    });
-
+        if (!user){
+            return res.send(404, "Invalid Username or Password.");
+        }
+        if (user){
+            bcrypt.compare(password, user.password, function (err, result){
+                if (result){
+                    var token = jwt.encode(user, JWT_SECRET);
+                    return res.json({token: token});
+                } else {
+                    return res.status(400).send();
+                }
+            });
+        }
+    })
 };
 
 module.exports.authenticate = function(req, res, next){

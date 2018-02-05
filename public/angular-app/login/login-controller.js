@@ -18,8 +18,8 @@ function LoginController($http, $location, $window, AuthFactory, jwtHelper){
                 password: vm.password
             };
 
-        $http.post('/api/user/login', user).then(function(response){
-            if (response.data.success) {
+            $http.post('/api/user/login', user).then(function(response){
+                if (response.data.success) {
                     $window.sessionStorage.token = response.data.token;
                     AuthFactory.isLoggedIn = true;
                     var token = $window.sessionStorage.token;
