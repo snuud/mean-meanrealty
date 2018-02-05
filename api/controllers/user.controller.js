@@ -119,8 +119,9 @@ module.exports.login = function(req, res){
         if (user){
             bcrypt.compare(password, user.password, function (err, result){
                 if (result){
-                    var token = jwt.encode(user, s3cr3t);
-                    return res.json({token: token});
+                    // var token = jwt.encode(user, JWT_SECRET);
+                    var token = jwt.sign({username: user.username}, 's3cr3t', {expiresIn: 3600});
+                    return res.status(200).json({success: true, token: token});
                 } else {
                     return res.status(400).send();
                 }
